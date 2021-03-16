@@ -10,10 +10,6 @@ import bookmarksView from './views/bookmarksView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -49,7 +45,7 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
 
     //3 render results
-    // resultsView.render(model.state.search.results);
+
     resultsView.render(model.getSearchResultsPage());
 
     //4 Render initial pagination button
@@ -99,8 +95,6 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
-  console.log('A');
-  // controlServings();
 };
 
 init();
